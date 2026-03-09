@@ -20,6 +20,7 @@ var mergeTwoLists = function (list1, list2) {
   let currentNode = dummy;
 
   while (list1 !== null && list2 !== null) {
+    // pick the smaller node and advance that list
     if (list1.val < list2.val) {
       currentNode.next = list1;
       list1 = list1.next;
@@ -28,6 +29,7 @@ var mergeTwoLists = function (list1, list2) {
       list2 = list2.next;
     }
 
+    // move the merged-list pointer forward
     currentNode = currentNode.next;
   }
 
@@ -37,5 +39,6 @@ var mergeTwoLists = function (list1, list2) {
     currentNode.next = list2;
   }
 
+  // dummy.next is the real head of the merged list
   return dummy.next;
 };
